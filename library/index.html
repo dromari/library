@@ -38,9 +38,8 @@
                             <div class="drop-menu no-auth">
                                 <h4 id="profile-title">Profile</h4>
                                 <div class="line-name"></div>
-                                <p onclick="document.getElementById('modal-login').style.display='flex'">Log In</p>
-                                <p class="p-reg-log"
-                                    onclick="document.getElementById('modal-register').style.display='flex'">
+                                <p>Log In</p>
+                                <p class="p-reg-log">
                                     Register
                                 </p>
                             </div>
@@ -49,7 +48,7 @@
                             <div class="drop-menu with-auth">
                                 <h4>123456789</h4>
                                 <div class="line-name"></div>
-                                <p onclick="document.getElementById('profile').style.display='flex'">My profile</p>
+                                <p>My profile</p>
                                 <p>Log Out</p>
                             </div>
                         </a>
@@ -138,7 +137,7 @@
                     </div>
                     <div class="books winter-books">
                         <div class="one-row-book">
-                            <div class="one-book book-card">
+                            <div class="one-book book-card" id="0">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -152,14 +151,14 @@
                                             Sapphic romance, and a strong, complex protagonist.
                                             Not for the faint of heart.
                                         </p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-library').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
                                     <img src="./assets/images/jpg/books/winter/theBookEaters.jpg" alt="theBookEaters">
                                 </div>
                             </div>
-                            <div class="two-book book-card">
+                            <div class="two-book book-card" id="1">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -171,7 +170,7 @@
                                             Practical Magic? Look no further than here - where a woman recovering from a
                                             breakup moves to a quaint town in upstate New York and befriends a beautiful
                                             witch.</p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-login').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
@@ -180,7 +179,7 @@
                             </div>
                         </div>
                         <div class="two-row-book">
-                            <div class="three-book book-card">
+                            <div class="three-book book-card" id="2">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -192,14 +191,14 @@
                                             uniqueness as one who raised the individual and his drama of soul into
                                             something
                                             of divine significance—an inspired introduction to Dante's main themes.</p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-login').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
                                     <img src="./assets/images/jpg/books/winter/dante.jpg" alt="dante">
                                 </div>
                             </div>
-                            <div class="four-book book-card">
+                            <div class="four-book book-card" id="3">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -211,7 +210,7 @@
                                             her family) exploring how the Windsors have evolved and thrived as the
                                             modern
                                             world has changed around them.</p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-login').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
@@ -222,7 +221,7 @@
                     </div>
                     <div class="books spring-books">
                         <div class="one-row-book">
-                            <div class="one-book book-card">
+                            <div class="one-book book-card" id="4">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -232,14 +231,14 @@
                                         <p class="text-book">Powerful novel that takes you back to a nostalgic time,
                                             exploring both the beauty and danger and loss of innocence that is youth.
                                         </p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-login').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
                                     <img src="./assets/images/jpg/books/spring/theBody.jpg" alt="theBody">
                                 </div>
                             </div>
-                            <div class="two-book book-card">
+                            <div class="two-book book-card" id="5">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -249,7 +248,7 @@
                                         <p class="text-book">This memoir about the author's relationship with gun
                                             violence feels both expansive and intimate, resulting in a lyrical
                                             indictment of the way things are.</p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-login').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
@@ -258,7 +257,7 @@
                             </div>
                         </div>
                         <div class="two-row-book">
-                            <div class="three-book book-card">
+                            <div class="three-book book-card" id="6">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -268,7 +267,7 @@
                                         <p class="text-book">A sardonic view of Silicon Valley culture, a meditation on
                                             race, and a journal of displacement and belonging, all in one form-defying
                                             package of spare prose.</p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-login').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
@@ -276,7 +275,7 @@
                                         alt="dayOfDistraction">
                                 </div>
                             </div>
-                            <div class="four-book book-card">
+                            <div class="four-book book-card" id="7">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -287,7 +286,7 @@
                                             twice her age with the promise to bring her to America. Her marriage is an
                                             opportunity for her family to eventually immigrate. For fans of Isabel
                                             Allende and Julia Alvarez.</p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-login').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
@@ -298,7 +297,7 @@
                     </div>
                     <div class="books summer-books">
                         <div class="one-row-book">
-                            <div class="one-book book-card">
+                            <div class="one-book book-card" id="8">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -310,14 +309,14 @@
                                             ChevronTexaco company for damage their oil fields did to the Amazon and her
                                             people
                                         </p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-login').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
                                     <img src="./assets/images/jpg/books/summer/crude.jpg" alt="crude">
                                 </div>
                             </div>
-                            <div class="two-book book-card">
+                            <div class="two-book book-card" id="9">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -328,7 +327,7 @@
                                             tales of courage and persistence from his experience of founding and leading
                                             Patagonia, Inc. Full title: Let My People Go Surfing: The Education of a
                                             Reluctant Businessman, Including 10 More Years of Business Unusual.</p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-login').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
@@ -337,7 +336,7 @@
                             </div>
                         </div>
                         <div class="two-row-book">
-                            <div class="three-book book-card">
+                            <div class="three-book book-card" id="10">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -347,14 +346,14 @@
                                         <p class="text-book">This collection of bold and scathingly beautiful feminist
                                             poems imagines what comes after our current age of environmental
                                             destruction, racism, sexism, and divisive politics.</p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-login').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
                                     <img src="./assets/images/jpg/books/summer/theOctopus.jpg" alt="theOctopus">
                                 </div>
                             </div>
-                            <div class="four-book book-card">
+                            <div class="four-book book-card" id="11">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -365,7 +364,7 @@
                                             the tumultuous history of Hawaii as a Hawaiian woman gathers her four
                                             granddaughters together in an erotic tale of villains and dreamers, queens
                                             and revolutionaries, lepers and healers.</p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-login').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
@@ -376,7 +375,7 @@
                     </div>
                     <div class="books autumn-books">
                         <div class="one-row-book">
-                            <div class="one-book book-card">
+                            <div class="one-book book-card" id="12">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -388,7 +387,7 @@
                                             each other and what we don't, examining the possibilities around how we
                                             construct and communicate identity.
                                         </p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-login').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
@@ -396,7 +395,7 @@
                                         alt="casualConversation">
                                 </div>
                             </div>
-                            <div class="two-book book-card">
+                            <div class="two-book book-card" id="13">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -407,7 +406,7 @@
                                             principled Naval officer who, horrified by the burning of Smyrna, led an
                                             extraordinary rescue effort that saved a quarter of a million refugees from
                                             the Armenian Genocide</p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-login').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
@@ -416,7 +415,7 @@
                             </div>
                         </div>
                         <div class="two-row-book">
-                            <div class="three-book book-card">
+                            <div class="three-book book-card" id="14">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -427,14 +426,14 @@
                                             baseball's postseason coming up! And what better way to prepare for it than
                                             reading the biography of one of the game's all-time greatest performers, the
                                             Man of Steal, Rickey Henderson?</p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-login').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
                                     <img src="./assets/images/jpg/books/autumn/rickey.jpg" alt="rickey">
                                 </div>
                             </div>
-                            <div class="four-book book-card">
+                            <div class="four-book book-card" id="15">
                                 <div class="discription-book">
                                     <div class="text-description-book">
                                         <p>Staff Picks</p>
@@ -444,7 +443,7 @@
                                         <p class="text-book">Exes Tegan and Sara find themselves chained together by
                                             hairballs of codependency. A father and child experience the shared trauma
                                             of giving birth to gods from their wounds.</p>
-                                        <button class="button-buy-book" onclick="document.getElementById('modal-login').style.display='flex'">Buy</button>
+                                        <button class="button-buy-book">Buy</button>
                                     </div>
                                 </div>
                                 <div class="img-book">
@@ -630,14 +629,9 @@
                                     account or you can register a new account</p>
                             </div>
                             <div class="two-button-get">
-                                <button class="button-sign-in"
-                                    onclick="document.getElementById('modal-register').style.display='flex'">Sign
-                                    Up</button>
-                                <button class="button-log-in"
-                                    onclick="document.getElementById('modal-login').style.display='flex'">Log
-                                    in</button>
-                                <button class="button-profile"
-                                    onclick="document.getElementById('profile').style.display='flex'">Profile</button>
+                                <button class="button-sign-in">Sign Up</button>
+                                <button class="button-log-in">Log in</button>
+                                <button class="button-profile">Profile</button>
                             </div>
                         </div>
                     </div>
@@ -692,8 +686,7 @@
         </footer>
         <div class="modal-register modal" id="modal-register">
             <form class="modal-redister-content">
-                <span class="close-register"
-                    onclick="document.getElementById('modal-register').style.display='none'">×</span>
+                <span class="close-register">×</span>
                 <div class="register-container">
                     <h2>Register</h2>
                     <label for="first-name">First name</label>
@@ -708,8 +701,8 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" minlength="8" required>
 
-                    <div class="button-signup register-btn">
-                        <button type="submit" class="signup-btn ">Sign Up</button>
+                    <div class="button-signup" >
+                        <button type="submit" class="signup-btn"id="register-btn">Sign Up</button>
                     </div>
                     <p>Already have an account?
                         <a href="#" class="login-href"><b>Login</b></a>
@@ -719,7 +712,7 @@
         </div>
         <div class="modal-login modal" id="modal-login">
             <form class="modal-login-content">
-                <span class="close-login" onclick="document.getElementById('modal-login').style.display='none'">×</span>
+                <span class="close-login">×</span>
                 <div class="login-container">
                     <h2>Login</h2>
                     <label for="email">E-mail or readers card</label>
@@ -739,7 +732,7 @@
         </div>
         <div class="profile modal" id="profile">
             <div class="profile-wrapper">
-                <span class="close-profile" onclick="document.getElementById('profile').style.display='none'">×</span>
+                <span class="close-profile">×</span>
                 <div class="profile-container">
                     <div class="name-profile">
                         <div class="short-name">
@@ -789,8 +782,7 @@
         </div>
         <div class="modal-library modal" id="modal-library">
             <form class="modal-library-content">
-                <span class="close-library"
-                    onclick="document.getElementById('modal-library').style.display='none'">×</span>
+                <span class="close-library">×</span>
                 <div class="library-container">
                     <h2>Buy a library card</h2>
                     <div class="content-form-library">
@@ -833,8 +825,11 @@
                 </div>
             </form>
         </div>
-        <script src="script.js"></script>
-        
+        <script src="burger.js"></script>
+        <script src="slider.js"></script>
+        <script src="favourites.js"></script>
+        <script src="logic.js"></script>
+               
 
     </div>
 </body>

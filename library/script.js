@@ -1,96 +1,3 @@
-/*burger*/
-
-const burgerIcon = document.querySelector('.burger-icon');
-const headerNav = document.querySelector('.header-navigation');
-const oneSpan = document.querySelector('.one-span');
-/*const icon = document.querySelector('.icon');*/
-const toggleMenu = () => {
-  document.body.classList.toggle('lock');
-  headerNav.classList.toggle('active');
-  burgerIcon.classList.toggle('active');
-  oneSpan.classList.toggle('active');
-  /*icon.classList.toggle('active');*/
-  iconIcon.classList.remove('active');
-  dropMenuContent.classList.remove('active');
-  noAuth.classList.remove('active');
-
-}
-
-burgerIcon.addEventListener('click', e => {
-  e.stopPropagation();
-  toggleMenu();
-});
-
-document.addEventListener('click', e => {
-  let target = e.target;
-  let its_headerNav = target == headerNav || headerNav.contains(target);
-  let its_burgerIcon = target == burgerIcon;
-  let headerNav_is_active = headerNav.classList.contains('active');
-  if (!its_headerNav && !its_burgerIcon && headerNav_is_active) {
-    toggleMenu();
-  }
-
-  if (burgerIcon.classList.contains('active')) {
-    document.body.classList.remove('lock');
-    headerNav.classList.remove('active');
-    burgerIcon.classList.remove('active');
-    oneSpan.classList.remove('active');
-    /*icon.classList.remove('active');*/
-  }
-})
-
-/*slider*/
-const sliderImg = document.querySelectorAll('.slider-img');
-const sliderRow = document.querySelector('.slider-row');
-const littleCircle = document.querySelectorAll('.little-circle');
-const arrowNext = document.querySelector('.arrow-next');
-const arrowPrev = document.querySelector('.arrow-prev');
-
-let sliderIndex = 0,
-  sliderWidth;
-
-window.addEventListener('resize', showSlide);
-
-arrowNext.addEventListener('click', nextSlide);
-arrowPrev.addEventListener('click', prevSlide);
-
-function showSlide() {
-  sliderWidth = document.querySelector('.slider-container').offsetWidth;
-  rollSlider();
-}
-showSlide();
-
-function nextSlide() {
-  sliderIndex++;
-  if (sliderIndex >= sliderImg.length) sliderIndex = 4;
-  rollSlider();
-  thisSlide(sliderIndex);
-}
-
-function prevSlide() {
-  sliderIndex--;
-  if (sliderIndex < 0) sliderIndex = 0;
-  rollSlider();
-  thisSlide(sliderIndex);
-}
-
-function rollSlider() {
-  sliderRow.style.transform = `translateX(${sliderIndex * -450}px)`;
-}
-
-function thisSlide(index) {
-  littleCircle.forEach(item => item.classList.remove('active-dot'));
-  littleCircle[index].classList.add('active-dot');
-}
-
-littleCircle.forEach((dot, index) => {
-  dot.addEventListener('click', () => {
-    sliderIndex = index;
-    rollSlider();
-    thisSlide(sliderIndex);
-  });
-})
-
 /*Register*/
 
 /*--drop-menu--*/
@@ -110,56 +17,11 @@ iconIcon.addEventListener('click', e => {
   toggleDropMenu();
 });
 
-/*Favourites*/
 
-const winter = document.querySelector('.winter');
-const spring = document.querySelector('.spring');
-const summer = document.querySelector('.summer');
-const autumn = document.querySelector('.autumn');
-const winterId = document.querySelector('winter');
-const springId = document.querySelector('spring');
-const summerId = document.querySelector('summer');
-const autumnId = document.querySelector('autumn');
-const winterBooks = document.querySelector('.winter-books');
-const springBooks = document.querySelector('.spring-books');
-const summerBooks = document.querySelector('.summer-books');
-const autumnBooks = document.querySelector('.autumn-books');
-const animationEndWinter = document.querySelector('.animation-end-winter');
-const animationEndSpring = document.querySelector('.animation-end-spring');
-const animationEndSummer = document.querySelector('.animation-end-summer');
-const animationEndAutumn = document.querySelector('.animation-end-autumn');
-
-window.onclick = function (event) {
-  if (event.target === winter || event.target === winterId) {
-    winterBooks.style.display = "block";
-    animationEndSpring.style.display = "block";
-    springBooks.style.display = "none";
-    summerBooks.style.display = "none";
-    autumnBooks.style.display = "none";
-  }
-  if (event.target === spring || event.target === springId) {
-    springBooks.style.display = "block";
-    winterBooks.style.display = "none";
-    summerBooks.style.display = "none";
-    autumnBooks.style.display = "none";
-  }
-  if (event.target === summer || event.target === summerId) {
-    summerBooks.style.display = "block";
-    springBooks.style.display = "none";
-    winterBooks.style.display = "none";
-    autumnBooks.style.display = "none";
-  }
-  if (event.target === autumn || event.target === autumnId) {
-    autumnBooks.style.display = "block";
-    springBooks.style.display = "none";
-    summerBooks.style.display = "none";
-    winterBooks.style.display = "none";
-  }
-}
 
 /*My profile*/
 
-/*copy-number-card*/
+/*copy-number-card
 
 const copyCardNumber = document.querySelector('.copy-number-card');
 
