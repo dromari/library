@@ -134,11 +134,20 @@ body {
     cursor: pointer;
 }
 
-.icon-img {}
+.icon-img {
+    display: block;
+}
 
-
-icon-img-auth {
+.icon-img-auth {
     display: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    background-color: #fefefe;
+    color: #0C0C0E;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter-Regular';
 }
 
 .no-auth.active {

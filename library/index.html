@@ -686,23 +686,23 @@
         </footer>
         <div class="modal-register modal" id="modal-register">
             <form class="modal-redister-content">
-                <span class="close-register">×</span>
+                <span class="close-register close">×</span>
                 <div class="register-container">
                     <h2>Register</h2>
                     <label for="first-name">First name</label>
-                    <input type="text" id="first-name" required>
+                    <input type="text" name='first-name' id="first-name" required>
 
                     <label for="last-name">Last name</label>
-                    <input type="text" id="last-name" required>
+                    <input type="text" name='last-name' id="last-name" required>
 
                     <label for="email">E-mail</label>
-                    <input type="email" id="email" required>
+                    <input type="email" name='email' id="email" required>
 
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" minlength="8" required>
 
-                    <div class="button-signup" >
-                        <button type="submit" class="signup-btn"id="register-btn">Sign Up</button>
+                    <div class="button-signup">
+                        <button type="button" class="signup-btn" id="register-btn">Sign Up</button>
                     </div>
                     <p>Already have an account?
                         <a href="#" class="login-href"><b>Login</b></a>
@@ -712,7 +712,7 @@
         </div>
         <div class="modal-login modal" id="modal-login">
             <form class="modal-login-content">
-                <span class="close-login">×</span>
+                <span class="close-login close">×</span>
                 <div class="login-container">
                     <h2>Login</h2>
                     <label for="email">E-mail or readers card</label>
@@ -732,7 +732,7 @@
         </div>
         <div class="profile modal" id="profile">
             <div class="profile-wrapper">
-                <span class="close-profile">×</span>
+                <span class="close-profile close">×</span>
                 <div class="profile-container">
                     <div class="name-profile">
                         <div class="short-name">
@@ -782,7 +782,7 @@
         </div>
         <div class="modal-library modal" id="modal-library">
             <form class="modal-library-content">
-                <span class="close-library">×</span>
+                <span class="close-library close">×</span>
                 <div class="library-container">
                     <h2>Buy a library card</h2>
                     <div class="content-form-library">
@@ -793,7 +793,7 @@
                             <label for="expiration-code">Expiration code</label>
                             <div class="expiration-code">
                                 <input type="number" id="expiration-code" min="0" max="99" required>
-                                <input type="number" id="expiration-code" min="0" max="99" required>
+                                <input type="number" id="expiration-code2" min="0" max="99" required>
                             </div>
 
                             <label for="cvc">CVC</label>
@@ -829,7 +829,7 @@
         <script src="slider.js"></script>
         <script src="favourites.js"></script>
         <script src="logic.js"></script>
-               
+
 
     </div>
 </body>
