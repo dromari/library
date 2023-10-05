@@ -134,8 +134,16 @@ body {
     cursor: pointer;
 }
 
+
+
 .icon-img {
+   background-color: #FFF;
+   border-radius: 100%;
+}
+
+.img-icon-img {
     display: block;
+    z-index: 10;
 }
 
 .icon-img-auth {

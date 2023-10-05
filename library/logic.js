@@ -5,7 +5,8 @@ const password = document.getElementById('password');
 const modalRegister = document.querySelector('.modal-register');
 const buttonRegister = document.querySelector('#register-btn');
 const iconImg = document.querySelector('.icon-img');
-const iconImgAuth = document.querySelector('.icon-img-auth');
+const imgIconImg = document.querySelector('.img-icon-img');
+
 const dropMenuContent = document.querySelector('.drop-menu-content');
 const noAuth = document.querySelector('.no-auth');
 const withAuth = document.querySelector('.with-auth');
@@ -18,7 +19,7 @@ closeModal.addEventListener('click', () => {
 })
 
 iconImg.addEventListener('click', () => {
-    if (isUserLogged) {
+    if (!isUserLogged()) {
         dropMenuContent.classList.toggle('active')
         noAuth.classList.toggle('active');
     }
@@ -40,6 +41,9 @@ function User(firstName, lastName, email, password) {
     this.lastName = lastName;
     this.email = email;
     this.password = password;
+    this.initials = function () {
+        return this.firstName.slice(0, 1).toUpperCase() + this.lastName.slice(0, 1).toUpperCase();
+    }
 }
 
 buttonRegister.addEventListener('click', () => {
@@ -55,22 +59,23 @@ buttonRegister.addEventListener('click', () => {
         localStorage.setItem(emailValue, JSON.stringify(user));
         sessionStorage.setItem('currentUser', JSON.stringify(user));
         modalRegister.style.display = 'none';
+        doInitials(user);
     }
 })
 
 function isUserLogged() {
-    sessionStorage.getItem('currentUser') !== null;
-    dropMenuContent.classList.toggle('active');
-    withAuth.classList.toggle('active');
+    return sessionStorage.getItem('currentUser') !== null;
 }
 
-function doInitials() {
-    iconImgAuth.innerHTML = '';
-    let initials = firstName.value.slice(0, 1).toUpperCase() + lastName.value.slice(0, 1).toUpperCase();
-    iconImg.style.display = 'none';
-    iconImgAuth.style.display = 'flex';
-    iconImgAuth.append(initials);
+function doInitials(user) {
+    imgIconImg.style.display = 'none';
+ 
+    iconImg.innerHTML = user.initials();
+  
 }
+
+
+
 
 
 
