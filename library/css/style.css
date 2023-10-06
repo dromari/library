@@ -134,16 +134,22 @@ body {
     cursor: pointer;
 }
 
-
-
 .icon-img {
-   background-color: #FFF;
-   border-radius: 100%;
+    display: block;
+    border-radius: 100%;
+    width: 28px;
+    height: 28px;
 }
 
 .img-icon-img {
-    display: block;
-    z-index: 10;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter-Regular;
+    width: 28px;
+    height: 28px;
+    background-color: #fefefe;
+    border-radius: 100%;
 }
 
 .icon-img-auth {

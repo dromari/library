@@ -36,6 +36,7 @@ textRegister.addEventListener('click', () => {
     noAuth.classList.remove('active');
 })
 
+/*---функция Юзер через конструктор*/
 function User(firstName, lastName, email, password) {
     this.firstName = firstName;
     this.lastName = lastName;
@@ -45,6 +46,7 @@ function User(firstName, lastName, email, password) {
         return this.firstName.slice(0, 1).toUpperCase() + this.lastName.slice(0, 1).toUpperCase();
     }
 }
+/*функция Юзер через конструктор---*/
 
 buttonRegister.addEventListener('click', () => {
     let firstNameValue = firstName.value;
@@ -68,11 +70,24 @@ function isUserLogged() {
 }
 
 function doInitials(user) {
-    imgIconImg.style.display = 'none';
- 
-    iconImg.innerHTML = user.initials();
-  
+    iconImg.style.display = 'none';
+    imgIconImg.style.display = 'flex';
+    imgIconImg.innerHTML = user.initials();
 }
+
+function getLoggedUser() {
+    const userSession = sessionStorage.getItem('currentUser');
+    const user = JSON.parse(userSession);
+    let firstName = user.firstName;
+    let lastName = user.lastName;
+    let email = user.email;
+    let password = user.password;    
+    let userLogged = new User(firstName, lastName, email, password);
+    return getLoggedUser(userLogged);
+}
+
+
+
 
 
 
