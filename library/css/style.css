@@ -1264,6 +1264,7 @@ form .button-check:hover {
 }
 
 .profile-wrapper {
+    position: relative;
     width: 600px;
     height: 400px;
 }
@@ -1410,8 +1411,7 @@ form .button-check:hover {
 
 .close-profile {
     position: absolute;
-    right: 29%;
-    top: 32.5%;
+    right: 2%; 
     font-size: 40px;
     font-weight: bold;
     color: #0C0C0E;
