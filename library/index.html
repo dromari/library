@@ -39,7 +39,7 @@
                             <div class="drop-menu no-auth">
                                 <h4 id="profile-title">Profile</h4>
                                 <div class="line-name"></div>
-                                <p>Log In</p>
+                                <p class="log-in">Log In</p>
                                 <p class="p-reg-log">
                                     Register
                                 </p>
@@ -595,30 +595,30 @@
                             <div class="input-content">
                                 <div class="wrapper-input-check">
                                     <p>Brooklyn Public Library</p>
-                                    <form action="..." class="two-input" method="POST">
+                                    <form class="two-input" method="POST">
                                         <input type="text" id="readers-name" placeholder="Reader's name"
-                                            pattern="[a-zA-Z]\d«\-»">
+                                            pattern="[a-zA-Z]">
                                         <input type="text" id="card-number" placeholder="Card number"
-                                            pattern="[a-zA-Z]\d«\-»">
+                                            pattern="[a-zA-Z][0-9]">
                                         <button type="submit" value="check" class="button-check" disabled>Check the
                                             card</button>
                                         <div class="statistic-card">
                                             <div class="statistic-visits">
                                                 <p>Visits</p>
                                                 <img src="./assets/images/svg/visits.svg" alt="visits">
-                                                <div class="statistic-count-visits">23</div>
+                                                <div class="statistic-count-visits"></div>
                                             </div>
                                             <div class="statistic-bonuses">
                                                 <p>Bonuses</p>
                                                 <img src="./assets/images/svg/bonuses.svg" alt="bonuses">
-                                                <div class="statistic-count-bonuses">1240</div>
+                                                <div class="statistic-count-bonuses"></div>
                                             </div>
                                             <div class="statistic-books-profile">
                                                 <p>Books</p>
                                                 <img src="./assets/images/svg/books.svg" alt="books">
-                                                <div class="statistic-count-books">2</div>
+                                                <div class="statistic-count-books"></div>
                                             </div>
-                                        </div>
+                                     </div>                                        
                                     </form>
                                 </div>
                             </div>
@@ -632,7 +632,6 @@
                             <div class="two-button-get">
                                 <button class="button-sign-in">Sign Up</button>
                                 <button class="button-log-in">Log in</button>
-                                <button class="button-profile">Profile</button>
                             </div>
                         </div>
                     </div>
@@ -691,16 +690,16 @@
                 <div class="register-container">
                     <h2>Register</h2>
                     <label for="first-name">First name</label>
-                    <input type="text" name='first-name' id="first-name" required>
+                    <input type="text" id="first-name" required>
 
                     <label for="last-name">Last name</label>
-                    <input type="text" name='last-name' id="last-name" required>
+                    <input type="text" id="last-name" required>
 
                     <label for="email">E-mail</label>
-                    <input type="email" name='email' id="email" required>
+                    <input type="email"  id="email" required>
 
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" minlength="8" required>
+                    <input type="password" id="password" minlength="8" required>
 
                     <div class="button-signup">
                         <button type="button" class="signup-btn" id="register-btn">Sign Up</button>
@@ -716,14 +715,14 @@
                 <span class="close-login close">×</span>
                 <div class="login-container">
                     <h2>Login</h2>
-                    <label for="email">E-mail or readers card</label>
+                    <label for="email2">E-mail or readers card</label>
                     <input type="email" id="email2" required>
 
-                    <label for="password">Password</label>
+                    <label for="password2">Password</label>
                     <input type="password" id="password2" minlength="8" required>
 
                     <div class="button-signup ">
-                        <button type="submit" class="signup-btn">Sign Up</button>
+                        <button type="submit" class="signup-btn" id="login-btn">Sign Up</button>
                     </div>
                     <p>Don't have an account?
                         <a href="#" class="register-href"><b>Register</b></a>

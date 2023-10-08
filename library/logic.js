@@ -2,19 +2,24 @@ const firstName = document.getElementById('first-name');
 const lastName = document.getElementById('last-name');
 const email = document.getElementById('email');
 const password = document.getElementById('password');
+
 const modalRegister = document.querySelector('.modal-register');
-const buttonRegister = document.querySelector('#register-btn');
+const closeRegister = document.querySelector('.close-register');
+const modalLogin = document.querySelector('.modal-login');
+const closeLogin = document.querySelector('.close-login');
+const modalProfile = document.querySelector('.profile');
+const closeProfile = document.querySelector('.close-profile');
+const modalLibrary = document.querySelector('.modal-library');
+const closeLibrary = document.querySelector('.close-library');
+
+const registerButton = document.querySelector('#register-btn');
 const iconImg = document.querySelector('.icon-img');
 const imgIconImg = document.querySelector('.img-icon-img');
 const textMyProfile = document.querySelector('.text-my-profile');
-const modalProfile = document.querySelector('.profile');
 const dropMenuContent = document.querySelector('.drop-menu-content');
 const noAuth = document.querySelector('.no-auth');
 const withAuth = document.querySelector('.with-auth');
 const textRegister = document.querySelector('.p-reg-log');
-const closeModal = document.querySelector('.close');
-const closeProfile = document.querySelector('.close-profile');
-const modal = document.querySelector('.modal');
 const shortName = document.querySelector('.short-name');
 const fullName = document.querySelector('.full-name');
 const visitsCount = document.querySelector('.count-visits');
@@ -22,17 +27,56 @@ const bonusesCount = document.querySelector('.count-bonuses');
 const booksCount = document.querySelector('.count-books');
 const rentedList = document.querySelector('.rented-list');
 const cardNumber = document.querySelector('.card-number-p');
+const textLogIn = document.querySelector('.log-in');
 const textLogOut = document.querySelector('.log-out');
 const numberProfileCard = document.querySelector('.number-profile-card');
+const readersName = document.querySelector('#readers-name');
+const cardNumberInput = document.querySelector('#card-number');
+const buttonCheckLibraryCard = document.querySelector('.button-check');
+const statisticCard = document.querySelector('.statistic-card');
+const statisticCountVisits = document.querySelector('.statistic-count-visits');
+const statisticCountBonuses = document.querySelector('.statistic-count-bonuses');
+const statisticCountBooks = document.querySelector('.statistic-count-books');
 
-/*closeModal.addEventListener('click', () => {
-    /*создать массив из элементов modal*/
-/*let arr = [modal];
-arr.map.style.display = 'none';
-})*/
+const inputContent = document.querySelector('.input-content');
+const buttonSignInLibraryCard = document.querySelector('.button-sign-in');
+const buttonLogInLibraryCard = document.querySelector('.button-log-in');
+const loginHref = document.querySelector('.login-href');
+const registerHref = document.querySelector('.register-href');
 
-closeModal.addEventListener('click', () => {
-    modal.style.display = 'none';
+const loginButton = document.querySelector('#login-btn');
+const emailLogin = document.querySelector('#email2');
+const passwordLogin = document.querySelector('#password2');
+
+
+closeRegister.addEventListener('click', () => {
+    modalRegister.style.display = 'none';
+})
+
+closeLogin.addEventListener('click', () => {
+    modalLogin.style.display = 'none';
+})
+
+closeProfile.addEventListener('click', () => {
+    modalProfile.style.display = 'none';
+})
+
+closeLibrary.addEventListener('click', () => {
+    modalLibrary.style.display = 'none';
+})
+
+buttonSignInLibraryCard.addEventListener('click', () => {
+    modalRegister.style.display = 'flex';
+})
+
+buttonLogInLibraryCard.addEventListener('click', () => {
+    modalLogin.style.display = 'flex';
+})
+
+textLogIn.addEventListener('click', () => {
+    dropMenuContent.classList.remove('active')
+    noAuth.classList.remove('active');
+    modalLogin.style.display = 'flex';
 })
 
 textLogOut.addEventListener('click', () => {
@@ -40,105 +84,21 @@ textLogOut.addEventListener('click', () => {
     location.reload();
 })
 
-
-function isUserLogged() {
-    return sessionStorage.getItem('currentUser') !== null;
-}
-
-iconImg.addEventListener('click', () => {
-    if (!isUserLogged()) {
-        dropMenuContent.classList.toggle('active')
-        noAuth.classList.toggle('active');
-    }
-    else {
-        dropMenuContent.classList.toggle('active');
-        withAuth.classList.toggle('active');
-    }
-})
-
-imgIconImg.addEventListener('click', () => {
-    if (isUserLogged()) {
-        dropMenuContent.classList.toggle('active')
-        withAuth.classList.toggle('active');
-    }
-})
-
-/*---функция Юзер через конструктор*/
-function User(firstName, lastName, email, password, visits, bonuses, books, cardNumber) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
-    this.password = password;
-    this.visits = visits;
-    this.bonuses = bonuses;
-    this.books = books;
-    this.cardNumber = cardNumber;
-    this.initials = function () {
-        return this.firstName.slice(0, 1).toUpperCase() + this.lastName.slice(0, 1).toUpperCase();
-    }
-}
-/*функция Юзер через конструктор---*/
-
 textRegister.addEventListener('click', () => {
     modalRegister.style.display = 'flex';
     dropMenuContent.classList.remove('active')
     noAuth.classList.remove('active');
 })
 
-buttonRegister.addEventListener('click', () => {
-    let firstNameValue = firstName.value;
-    let lastNameValue = lastName.value;
-    let emailValue = email.value;
-    let passwordValue = password.value;
-    let visits = 1;
-    let bonuses = 0;
-    let books = [];
-    let cardNumber = generateCardNumber();
-    let user = new User(firstNameValue, lastNameValue, emailValue, passwordValue, visits, bonuses, books, cardNumber);
-    if (firstNameValue == '' || lastNameValue == '' || emailValue == '' || passwordValue == '') {
-        modalRegister.style.display = 'flex';
-    }
-    else {
-        localStorage.setItem(emailValue, JSON.stringify(user));
-        sessionStorage.setItem('currentUser', JSON.stringify(user));
-        modalRegister.style.display = 'none';
-        doInitials(user);
-    }
+loginHref.addEventListener('click', () => {
+    modalRegister.style.display = 'none';
+    modalLogin.style.display = 'flex';
 })
 
-function getLoggedUser() {
-    if (isUserLogged()) {
-        const userSession = sessionStorage.getItem('currentUser');
-        const user = JSON.parse(userSession);
-        let userLogged = new User(user.firstName, user.lastName, user.email, user.password, user.visits, user.bonuses, user.books, user.cardNumber);
-        return userLogged;
-    }
-    else {
-        return null;
-    }
-}
-
-textMyProfile.addEventListener('click', () => {
-    modalProfile.style.display = 'flex';
-    dropMenuContent.classList.remove('active')
-    withAuth.classList.remove('active');
-    let user = getLoggedUser();
-    shortName.innerHTML = user.initials();
-    fullName.innerHTML = user.firstName + user.lastName;
-    visitsCount.innerHTML = user.visits;
-    bonusesCount.innerHTML = user.bonuses;
-    booksCount.innerHTML = user.books.length;
-    cardNumber.innerHTML = user.cardNumber;
-    numberProfileCard.innerHTML = "s";
+registerHref.addEventListener('click', () => {
+    modalLogin.style.display = 'none';
+    modalRegister.style.display = 'flex';
 })
-
-
-function doInitials(user) {
-    iconImg.style.display = 'none';
-    imgIconImg.style.display = 'flex';
-    imgIconImg.innerHTML = user.initials();
-}
-
 
 const generateCardNumber = () => {
     const min = 0x100000000;
@@ -146,6 +106,42 @@ const generateCardNumber = () => {
     const cardNumber = Math.floor(Math.random() * (max - min) + min);
     return cardNumber.toString(16).toUpperCase();
 }
+
+function User(firstName, lastName, email, password, cardNumber, visits, bonuses, books) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.password = password;
+    this.cardNumber = cardNumber;
+    this.visits = visits;
+    this.bonuses = bonuses;
+    this.books = books;
+    this.initials = function () {
+        return firstName.slice(0, 1).toUpperCase() + lastName.slice(0, 1).toUpperCase();
+    }
+}
+
+iconImg.addEventListener('click', () => {
+    dropMenuContent.classList.toggle('active')
+    noAuth.classList.toggle('active');
+})
+
+registerButton.addEventListener('click', () => {
+    let firstNameV = firstName.value;
+    let lastNameV = lastName.value;
+    let emailV = email.value;
+    let passwordV = password.value;
+    let cardNumber = generateCardNumber();
+    let visits = 1;
+    let bonuses = 0;
+    let books = [];
+    let user = new User(firstNameV, lastNameV, emailV, passwordV, cardNumber, visits, bonuses, books);
+    localStorage.setItem(emailV, JSON.stringify(user));
+    sessionStorage.setItem('currentUser', JSON.stringify(user));
+    modalRegister.style.display = 'none';
+})
+
+
 
 
 

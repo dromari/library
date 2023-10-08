@@ -859,13 +859,14 @@ form .button-check:hover {
 }
 
 .statistic-card {
-    display: flex;
+    display: none;
+    justify-content: center;
     font-family: 'Inter-Regular';
     color: #000;
     font-size: 20px;
     gap: 20px;
     letter-spacing: 0.4px;
-    margin-top: 16px;
+    margin-top: 7px;
 }
 
 .statistic-card p {
@@ -959,11 +960,6 @@ form .button-check:hover {
     background: #BB945F;
     transition: 0.5s;
 }
-
-.statistic-card {
-    display: none;
-}
-
 
 /*footer*/
 
