@@ -168,6 +168,31 @@ function getLoggedUser() {
 const titleGetInfo = document.querySelector('.title-get-info');
 const textGetInfo = document.querySelector('.text-get-info');
 const profileButton = document.querySelector('.button-profile');
+const buyBookButtons = document.querySelectorAll('.button-buy-book');
+
+function Book(id, name, author) {
+    this.id = id;
+    this.name = name;
+    this.author = author;
+}
+
+buyBookButtons.forEach(item => {
+    item.addEventListener('click', (e) => {
+        const buyButton = e.target;
+        const bookDiv = buyButton.parentElement.parentElement.parentElement;
+        let nameBook = bookDiv.querySelector('.name-book').textContent;
+        let authorBook = bookDiv.querySelector('.author-book').textContent;
+        let book = new Book(bookDiv.id, nameBook, authorBook);
+        let user = getLoggedUser();
+        user.books.push(book);
+        localStorage.setItem(user.email, JSON.stringify(user));
+        sessionStorage.setItem('currentUser', JSON.stringify(user));
+        buyButton.innerHTML = 'Own';
+        buyButton.style.backgroundColor = '#BB945F';
+    })
+
+})
+
 
 function updatePage() {
     if (isLoggedUser()) {
@@ -175,7 +200,6 @@ function updatePage() {
         dropMenuContent.classList.remove('active')
         noAuth.classList.remove('active');
         getInitials(user);
-        generateCardNumber();
         numberProfileCard.innerHTML = user.cardNumber;
         cardNumber.innerHTML = user.cardNumber;
         shortName.innerHTML = user.initials();
@@ -196,9 +220,13 @@ function updatePage() {
         buttonSignInLibraryCard.style.display = 'none';
         buttonLogInLibraryCard.style.display = 'none';
         profileButton.style.display = 'flex';
+        user.books.forEach(book => {
+            let bookButton = document.querySelector('#' + book.id + ' button');
+            bookButton.style.backgroundColor = '#BB945F';
+            bookButton.innerHTML = 'Own';
+        })
     }
 }
-
 profileButton.addEventListener('click', () => {
     modalProfile.style.display = 'flex';
 })
@@ -216,7 +244,7 @@ loginButton.addEventListener('click', () => {
         let user = new User(userLocal.firstName, userLocal.lastName, userLocal.email, userLocal.password, userLocal.cardNumber, visits, userLocal.bonuses, userLocal.books)
         sessionStorage.setItem('currentUser', JSON.stringify(user));
         localStorage.setItem(email, JSON.stringify(user));
-        updatePage();
+        updatePage(user);
     }
 
 })
@@ -227,26 +255,8 @@ function getInitials(user) {
     imgIconImg.innerHTML = user.initials();
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+window.onload = function () {
+    let user = getLoggedUser();
+    updatePage();
+}
 
