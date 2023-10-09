@@ -90,6 +90,12 @@ textRegister.addEventListener('click', () => {
     noAuth.classList.remove('active');
 })
 
+textMyProfile.addEventListener('click', () => {
+    modalProfile.style.display = 'flex';
+    dropMenuContent.classList.remove('active')
+    withAuth.classList.remove('active');
+})
+
 loginHref.addEventListener('click', () => {
     modalRegister.style.display = 'none';
     modalLogin.style.display = 'flex';
@@ -126,6 +132,11 @@ iconImg.addEventListener('click', () => {
     noAuth.classList.toggle('active');
 })
 
+imgIconImg.addEventListener('click', () => {
+    dropMenuContent.classList.toggle('active')
+    withAuth.classList.toggle('active');
+})
+
 registerButton.addEventListener('click', () => {
     let firstNameV = firstName.value;
     let lastNameV = lastName.value;
@@ -139,7 +150,63 @@ registerButton.addEventListener('click', () => {
     localStorage.setItem(emailV, JSON.stringify(user));
     sessionStorage.setItem('currentUser', JSON.stringify(user));
     modalRegister.style.display = 'none';
+    updatePage();
 })
+
+function isLoggedUser() {
+    return sessionStorage.getItem('currentUser') !== null;
+}
+
+function getLoggedUser() {
+    let json = sessionStorage.getItem('currentUser');
+    let jsonParse = JSON.parse(json);
+    return new User(jsonParse.firstName, jsonParse.lastName, jsonParse.email, jsonParse.password, jsonParse.cardNumber, jsonParse.visits, jsonParse.bonuses, jsonParse.books);
+}
+
+const titleGetInfo = document.querySelector('.title-get-info');
+const textGetInfo = document.querySelector('.text-get-info');
+const profilebutton = document.querySelector('.button-profile');
+
+function updatePage() {
+    if (isLoggedUser()) {
+        let user = getLoggedUser();
+        dropMenuContent.classList.remove('active')
+        noAuth.classList.remove('active');
+        getInitials(user);
+        generateCardNumber();
+        numberProfileCard.innerHTML = user.cardNumber;
+        cardNumber.innerHTML = user.cardNumber;
+        shortName.innerHTML = user.initials();
+        fullName.innerHTML = user.firstName + ' ' + user.lastName;
+        visitsCount.innerHTML = user.visits;
+        bonusesCount.innerHTML = user.bonuses;
+        booksCount.innerHTML = user.books.length;
+        buttonCheckLibraryCard.style.display = 'none';
+        inputContent.style.height = '430px';
+        readersName.value = user.firstName + ' ' + user.lastName;
+        cardNumberInput.value = user.cardNumber;
+        statisticCard.style.display = 'flex';
+        statisticCountVisits.innerHTML = user.visits;
+        statisticCountBonuses.innerHTML = user.bonuses;
+        statisticCountBooks.innerHTML = user.books.length;
+        titleGetInfo.innerHTML = 'Visit your profile';
+        textGetInfo.innerHTML = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
+        buttonSignInLibraryCard.style.display = 'none';
+        buttonLogInLibraryCard.style.display = 'none';
+        profilebutton.style.display = 'flex';
+    }
+}
+
+function getInitials(user) {
+    iconImg.style.display = 'none';
+    imgIconImg.style.display = 'flex';
+    imgIconImg.innerHTML = user.initials();
+}
+
+
+
+
+
 
 
 

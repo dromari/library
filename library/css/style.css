@@ -195,13 +195,14 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    width: 80px;
+    width: 110px;
     height: 115px;
     background-color: #FFF;
     display: flex;
     visibility: visible;
     position: absolute;
-    left: -50px;
+    left: -82px;
+    margin-top: 5px;
 }
 
 .drop-menu h4 {
@@ -209,7 +210,7 @@ body {
     font-family: 'Inter-Bold';
     font-size: 15px;
     line-height: 20px;
-    margin-top: -12px;
+    margin-top: -7px;
 }
 
 .drop-menu .line-name {
@@ -227,6 +228,10 @@ body {
 
 .drop-menu-with-auth {
     display: none;
+}
+
+.number-profile-card {
+    font-weight: 700;
 }
 
 
@@ -928,8 +933,10 @@ form .button-check:hover {
 
 
 .button-profile {
-    display: block;
+    display: none;
     margin-top: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -1407,7 +1414,7 @@ form .button-check:hover {
 
 .close-profile {
     position: absolute;
-    right: 2%; 
+    right: 2%;
     font-size: 40px;
     font-weight: bold;
     color: #0C0C0E;
