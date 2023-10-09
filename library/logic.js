@@ -106,6 +106,8 @@ registerHref.addEventListener('click', () => {
     modalRegister.style.display = 'flex';
 })
 
+
+
 const generateCardNumber = () => {
     const min = 0x100000000;
     const max = 0x1FFFFFFFF;
@@ -165,7 +167,7 @@ function getLoggedUser() {
 
 const titleGetInfo = document.querySelector('.title-get-info');
 const textGetInfo = document.querySelector('.text-get-info');
-const profilebutton = document.querySelector('.button-profile');
+const profileButton = document.querySelector('.button-profile');
 
 function updatePage() {
     if (isLoggedUser()) {
@@ -193,9 +195,31 @@ function updatePage() {
         textGetInfo.innerHTML = 'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
         buttonSignInLibraryCard.style.display = 'none';
         buttonLogInLibraryCard.style.display = 'none';
-        profilebutton.style.display = 'flex';
+        profileButton.style.display = 'flex';
     }
 }
+
+profileButton.addEventListener('click', () => {
+    modalProfile.style.display = 'flex';
+})
+
+loginButton.addEventListener('click', () => {
+    modalLogin.style.display = 'none';
+    let email = emailLogin.value;
+    let password = passwordLogin.value;
+    let userLocalGetItem = localStorage.getItem(email);
+    let userLocal = JSON.parse(userLocalGetItem);
+    if (userLocalGetItem === null || password !== userLocal.password) {
+        alert('Логин или пароль не верный');
+    } else {
+        let visits = userLocal.visits + 1;
+        let user = new User(userLocal.firstName, userLocal.lastName, userLocal.email, userLocal.password, userLocal.cardNumber, visits, userLocal.bonuses, userLocal.books)
+        sessionStorage.setItem('currentUser', JSON.stringify(user));
+        localStorage.setItem(email, JSON.stringify(user));
+        updatePage();
+    }
+
+})
 
 function getInitials(user) {
     iconImg.style.display = 'none';
