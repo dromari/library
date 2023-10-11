@@ -160,10 +160,12 @@ function isLoggedUser() {
 }
 
 function getLoggedUser() {
-    let json = sessionStorage.getItem('currentUser');
-    let jsonParse = JSON.parse(json);
-    return new User(jsonParse.firstName, jsonParse.lastName, jsonParse.email, jsonParse.password, jsonParse.cardNumber, jsonParse.visits, jsonParse.bonuses, jsonParse.books);
+    if (isLoggedUser()) {
+        let json = JSON.parse(sessionStorage.getItem('currentUser'));
+        return new User(json.firstName, json.lastName, json.email, json.password, json.cardNumber, json.visits, json.bonuses, json.books);
+    }
 }
+
 
 const titleGetInfo = document.querySelector('.title-get-info');
 const textGetInfo = document.querySelector('.text-get-info');
@@ -177,22 +179,27 @@ function Book(id, name, author) {
 }
 
 buyBookButtons.forEach(item => {
-    item.addEventListener('click', (e) => {
-        const buyButton = e.target;
-        const bookDiv = buyButton.parentElement.parentElement.parentElement;
-        let nameBook = bookDiv.querySelector('.name-book').textContent;
-        let authorBook = bookDiv.querySelector('.author-book').textContent;
-        let book = new Book(bookDiv.id, nameBook, authorBook);
-        let user = getLoggedUser();
-        user.books.push(book);
-        localStorage.setItem(user.email, JSON.stringify(user));
-        sessionStorage.setItem('currentUser', JSON.stringify(user));
-        buyButton.innerHTML = 'Own';
-        buyButton.style.backgroundColor = '#BB945F';
-    })
-
+    if (isLoggedUser()) {
+        item.addEventListener('click', (e) => {
+            const buyButton = e.target;
+            const bookDiv = buyButton.parentElement.parentElement.parentElement;
+            let nameBook = bookDiv.querySelector('.name-book').textContent;
+            let authorBook = bookDiv.querySelector('.author-book').textContent;
+            let book = new Book(bookDiv.id, nameBook, authorBook);
+            let user = getLoggedUser();
+            user.books.push(book);
+            localStorage.setItem(user.email, JSON.stringify(user));
+            sessionStorage.setItem('currentUser', JSON.stringify(user));
+            buyButton.innerHTML = 'Own';
+            buyButton.style.backgroundColor = '#BB945F';
+        })
+    }
+    else {
+        item.addEventListener('click', () => {
+            modalLogin.style.display = 'flex';
+        })
+    }
 })
-
 
 function updatePage() {
     if (isLoggedUser()) {
@@ -227,6 +234,25 @@ function updatePage() {
         })
     }
 }
+
+
+function checkCard() {
+    if (!isLoggedUser()) {
+        let name = readersName.value;
+        let numberCard = cardNumberInput.value;
+        let userLocalGetItem = localStorage.getItem(numberCard);
+        let userLocal = JSON.parse(userLocalGetItem);
+        buttonCheckLibraryCard.addEventListener('click', () => {
+            if (numberCard === userLocal.cardNumber) {
+                buttonCheckLibraryCard.style.display = 'none';
+                statisticCard.style.display = 'flex';
+            }
+            else alert('Пользователь с такими данными не найден');
+        })
+    }
+}
+checkCard();
+
 profileButton.addEventListener('click', () => {
     modalProfile.style.display = 'flex';
 })
@@ -246,14 +272,15 @@ loginButton.addEventListener('click', () => {
         localStorage.setItem(email, JSON.stringify(user));
         updatePage(user);
     }
-
 })
+
 
 function getInitials(user) {
     iconImg.style.display = 'none';
     imgIconImg.style.display = 'flex';
     imgIconImg.innerHTML = user.initials();
 }
+
 
 window.onload = function () {
     let user = getLoggedUser();

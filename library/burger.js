@@ -8,7 +8,7 @@ const toggleMenu = () => {
   burgerIcon.classList.toggle('active');
   oneSpan.classList.toggle('active');
   /*icon.classList.toggle('active');*/
-  iconIcon.classList.remove('active');
+  /*iconIcon.classList.remove('active');*/
   dropMenuContent.classList.remove('active');
   noAuth.classList.remove('active');
 
